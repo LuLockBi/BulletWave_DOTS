@@ -1,8 +1,11 @@
+using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 
+[BurstCompile]
 public partial struct BulletMoveSystem : ISystem
 {
+    [BurstCompile]
     public readonly void OnUpdate(ref SystemState state)
     {
         float deltaTime = SystemAPI.Time.DeltaTime;

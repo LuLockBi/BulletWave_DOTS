@@ -13,14 +13,16 @@ public partial struct PlayerInputSystem : ISystem
         if (Input.GetKey(KeyCode.A)) moveInput.x -= 1;
         if (Input.GetKey(KeyCode.D)) moveInput.x += 1;
 
-        foreach (RefRW<PlayerMovementInput> input in SystemAPI.Query<RefRW<PlayerMovementInput>>())
-        {
-            if (!math.all(moveInput == float2.zero))
-            {
-                moveInput = math.normalize(moveInput);
-            }
 
-            input.ValueRW.move = moveInput;
+        if (!math.all(moveInput == float2.zero))
+        {
+            moveInput = math.normalize(moveInput);
+
         }
+        
+        var input = SystemAPI.GetSingletonRW<PlayerMovementInput>();
+
+        input.ValueRW.move = moveInput;
+
     }
 }

@@ -1,5 +1,4 @@
 using Unity.Entities;
-//using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
@@ -7,7 +6,6 @@ public class BulletAuthoring : MonoBehaviour
 {
     public float speed = 10f;
     public float scale = 0.2f;
-    //public float Damage = 1f;
     public float bulletLifeTime = 3f;
 
     public class Baker : Baker<BulletAuthoring>
